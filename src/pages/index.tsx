@@ -1,5 +1,11 @@
+import { useEffect } from "react";
+
 import DefaultLayout from "@/layouts/default";
 import ImageGrid from "@/components/image-grid";
+import { useFetchPhotos } from "@/hooks/use-fetch-photos";
+import { useRandomizeBg } from "@/hooks/use-randomize-bg";
+import { ThemeSwitch } from "@/components/theme-switch";
+
 
 const gridItems = [
   {
@@ -65,13 +71,27 @@ const gridItems = [
 ];
 
 export default function IndexPage() {
+  const { bgColor } = useRandomizeBg();
+  const { data, loading, error } = useFetchPhotos();
+
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
+
+  // if (error) {
+  //   return <div>Error: {error}</div>;
+  // }
+
   return (
     <DefaultLayout>
       <section className="w-full">
-        <div className="hidden sm:block">
+        <div className={`hidden sm:block bg-[${bgColor}]`}>
           <ImageGrid items={gridItems} />
+        </div>
+        <div className="hidden">
+        <ThemeSwitch />
         </div>
       </section>
     </DefaultLayout>
-  );
+  )
 }
