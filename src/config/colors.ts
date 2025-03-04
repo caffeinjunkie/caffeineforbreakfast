@@ -1,0 +1,1 @@
+export const bgColors = ["#2379A1", "#558F32"]

@@ -1,4 +1,5 @@
 import { Button } from "@heroui/button";
+import { Link } from "@heroui/link";
 
 interface GridItem {
   id: string;
@@ -107,9 +108,24 @@ export default function ImageGrid({ items }: ImageGridProps) {
           </div>
         </div>
         {/* Bottom row - 50% height */}
-        <div className="h-1/2 relative rounded-md overflow-hidden">
-          <Button color="primary" className="w-full h-full">Test</Button>
-        </div>
+        <Link
+          className="h-1/2 relative rounded-md overflow-hidden bg-default-100"
+          color="foreground"
+          href="/about"
+          >
+            <img
+            src={getOptimizedImageUrl("https://images.prismic.io/caffeineforbreakfast/Z8eLfhsAHJWomHog_DSCF2427.png?auto=format,compress", 500, 500)}
+            alt="dp"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute top-0 left-0 right-0 p-4 h-full text-white">
+            <div className="flex flex-col h-full items-between justify-between">
+              <h3 className="font-semibold text-2xl">Meet the</h3>
+              <h1 className="font-semibold text-7xl bg-gradient-to-t from-[#B993D6] to-[#8CA6DB] text-transparent bg-clip-text">Author</h1>
+            </div>
+          </div>
+        </Link>
       </div>
     </div>
   );
