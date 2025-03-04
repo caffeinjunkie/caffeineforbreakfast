@@ -1,5 +1,5 @@
 import CursorFollow from "@/components/cursor-follow";
-import { Navbar } from "@/components/navbar";
+// import { Navbar } from "@/components/navbar";
 
 export default function DefaultLayout({
   children,
@@ -8,7 +8,7 @@ export default function DefaultLayout({
 }) {
   return (
     <div className="relative flex flex-col h-screen">
-      <Navbar />
+      {/* <Navbar /> */}
       <CursorFollow />
       <main className="flex-grow">
         {children}
